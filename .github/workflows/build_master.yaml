@@ -3,7 +3,7 @@ name: Build and push :master image
 on:
   push:
     branches:
-      - master
+      - backport-cbc-cipher-deprecation-to-v1.7.0
 
 jobs:
   build:
@@ -14,8 +14,8 @@ jobs:
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        REGISTRY: projectcontour
-        VERSION: master
+        REGISTRY: alfatraining
+        VERSION: v1.7.0
         TAG_LATEST: "false"
       run: |
         echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
